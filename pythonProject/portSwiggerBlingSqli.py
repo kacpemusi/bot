@@ -1,7 +1,7 @@
 import requests
 from time import sleep
 from bs4 import BeautifulSoup
-url = "https://ac551fd21f312880c038698400010027.web-security-academy.net/login"
+url = "https://www.youtube.com/watch?v=HDLFWp6_FRc"
 s = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 number = 1
 session = requests.Session()

